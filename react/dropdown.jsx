@@ -3,7 +3,6 @@ import axios from 'axios';
 
 const dropdown = () => {
     const [selected, setSelected] = useState(null);
-    const [open, setOpen] = useState(false);
     const [options, setOptions] = useState([]);
     
     useEffect(() => {
@@ -33,3 +32,5 @@ const dropdown = () => {
         </div>
     );
     }
+
+    export default dropdown;
