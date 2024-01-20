@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 
 const addUser = () => {
     const [formData, setFormData] = useState({
@@ -18,7 +19,7 @@ const addUser = () => {
     const handleSubmit = async(e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:5000/api/users', {
+            const response = await axios.post('http://localhost:5000/api/users', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
