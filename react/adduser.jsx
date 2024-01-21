@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 
 const addUser = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
-    confirmPassword
+    confirmPassword: ''
   });
 
   const [errors, setErrors] = useState({
@@ -80,8 +81,15 @@ const addUser = () => {
           email: '',
           password: ''
         });
+        setErrors({
+          email: '',
+          password: '',
+          confirmPassword: '',
+        });
+
+        navigate('/login');
       } else {
-        console.log('error');
+        console.error('Failed to register user.');
       }
     } catch (error) {
       console.log(error);
